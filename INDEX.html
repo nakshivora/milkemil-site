@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MILKEMIL | Premium Protein for Pregnancy & Lactation</title>
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Reset & Variables --- */
+        :root {
+            /* Your Brand Palette */
+            --primary-white: #FFFFFF;
+            --primary-pink: #F8C8DC; /* Pastel Pink */
+            --primary-blue: #ADD8E6; /* Pastel Blue */
+            
+            /* Accent and Text Colors */
+            --accent-chocolate: #4B3621;
+            --accent-vanilla: #FDFDD0;
+            --text-dark: #2E2D2C;
+            --text-light: #FAF8F5;
+            --border-soft: #F4F1EC;
+            
+            /* Typography */
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            
+            /* Spacing */
+            --section-padding: 6rem 10%;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); color: var(--text-dark); background-color: var(--primary-white); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 500; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        button { cursor: pointer; border: none; font-family: inherit; }
+
+        /* --- Global Helper Classes --- */
+        .btn { display: inline-block; padding: 14px 32px; border-radius: 4px; font-weight: 500; font-size: 1rem; transition: background-color 0.3s, transform 0.2s; text-align: center;}
+        .btn:hover { transform: translateY(-2px); }
+        
+        .btn-amazon { background-color: #2E2D2C; color: #fff; }
+        .btn-amazon:hover { background-color: #4A4846; }
+
+        .btn-whatsapp { background-color: #25D366; color: #fff; border-radius: 50px; font-size: 1.1rem; padding: 12px 28px;}
+        .btn-whatsapp:hover { background-color: #128C7E; }
+
+        .section-title { font-size: 2.8rem; text-align: center; margin-bottom: 4rem; color: var(--text-dark); }
+        .section-title span { color: var(--primary-pink); }
+        .badge { display: inline-block; background-color: var(--primary-blue); color: var(--text-dark); padding: 8px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
+
+        /* --- Navigation --- */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; position: fixed; top: 0; width: 100%; background: var(--primary-white); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--text-dark); }
+        .logo span { color: var(--primary-pink); }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a:hover { color: var(--primary-pink); }
+
+        /* --- Hero Section --- */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; background: linear-gradient(to right, var(--primary-white) 50%, var(--primary-pink) 50%); position: relative; margin-top: 80px;}
+        .hero-content { flex: 1; padding-right: 5%; }
+        .hero-content h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-dark); }
+        .hero-content p { font-size: 1.3rem; color: #5C5A57; margin-bottom: 2.5rem; }
+        .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
+        .hero-image img { max-width: 90%; height: auto; border-radius: 12px;}
+
+        /* --- Features/Why Us --- */
+        .features { padding: var(--section-padding); background-color: #FAF8F5; text-align: center;}
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+        .feature-card { background: var(--primary-white); padding: 3rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: transform 0.3s;}
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card img { max-width: 60px; margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-chocolate); }
+        .feature-card p { color: #5C5A57; font-size: 1rem; }
+
+        /* --- Product Gallery Section --- */
+        .product-section { padding: var(--section-padding); background-color: var(--primary-white); }
+        .product-display { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; background-color: var(--primary-white); padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        
+        .product-gallery { position: relative; display: flex; justify-content: center; align-items: center;}
+        .gallery-main img { max-width: 100%; border-radius: 8px; }
+        .gallery-thumbs { position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+        .thumb { width: 60px; height: 60px; border-radius: 4px; cursor: pointer; border: 2px solid transparent; overflow: hidden; transition: border 0.3s; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover;}
+        .thumb.active { border-color: var(--primary-pink); }
+
+        .product-details { padding-left: 2rem; }
+        .product-meta { color: #A19E9A; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .product-details h2 { font-size: 2.8rem; color: var(--accent-chocolate); margin-bottom: 1rem; }
+        .flavor-selectors { display: flex; gap: 1rem; margin-bottom: 2rem; list-style: none;}
+        .flavor-btn { padding: 10px 24px; border: 1px solid var(--border-soft); border-radius: 4px; color: #A19E9A; font-weight: 500;}
+        .flavor-btn.active { border-color: var(--accent-chocolate); color: var(--accent-chocolate); background-color: #F4F1EC;}
+        .flavor-btn.chocolate.active { background-color: #EFE6E0; color: var(--accent-chocolate); border-color: var(--accent-chocolate); }
+        .flavor-btn.vanilla.active { background-color: #FCFCF2; color: #C0A16B; border-color: #C0A16B;}
+
+        .price-row { display: flex; align-items: baseline; gap: 15px; margin-bottom: 2rem; }
+        .current-price { font-size: 2.2rem; font-weight: 700; color: var(--text-dark); }
+        .ratings { color: #FFB800; font-size: 1.2rem; display: flex; align-items: center; gap: 5px; margin-left: 1rem; font-family: var(--font-main); }
+        .ratings span { color: #A19E9A; font-size: 0.9rem;}
+
+        .purchase-actions { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+        .product-notes { font-style: italic; color: #5C5A57; font-size: 0.95rem;}
+
+        /* --- Deep Dive / Specifics Section --- */
+        .deep-dive { padding: var(--section-padding); background-color: #FAF8F5; text-align: center; }
+        .deep-dive-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; align-items: center;}
+        .deep-dive-img img { max-width: 100%; border-radius: 12px;}
+        .deep-dive-list { list-style: none; text-align: left; padding: 2rem;}
+        .deep-dive-list li { margin-bottom: 1.5rem; display: flex; align-items: start; gap: 15px; font-size: 1.1rem;}
+        .deep-dive-list li::before { content: '✓'; color: var(--primary-pink); font-size: 1.4rem; font-weight: bold;}
+        .deep-dive-list li strong { color: var(--accent-chocolate); }
+
+        /* --- FAQ Accordion --- */
+        .faq { padding: var(--section-padding); background-color: var(--primary-white); }
+        .faq-item { background-color: #FAF8F5; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden;}
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; cursor: pointer; }
+        .faq-question h4 { font-size: 1.2rem; color: var(--text-dark); }
+        .faq-icon { font-size: 1.5rem; color: var(--primary-pink); transition: transform 0.3s; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s, padding 0.4s; padding: 0 2rem;}
+        .faq-answer.open { max-height: 500px; padding: 0 2rem 2rem 2rem; }
+        .faq-item.open .faq-icon { transform: rotate(180deg); }
+
+        /* --- Contact/Call-to-Action Section --- */
+        .contact { padding: var(--section-padding); background-color: #FAF8F5; display: flex; flex-direction: column; align-items: center; text-align: center;}
+        .contact h2 { font-size: 3rem; margin-bottom: 2rem; }
+        .contact-cta { background: var(--primary-white); padding: 4rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); display: flex; flex-direction: column; align-items: center; gap: 2rem; max-width: 700px; }
+        .contact-cta h3 { font-size: 1.8rem; color: var(--text-dark); }
+        .contact-cta p { font-size: 1.1rem; color: #5C5A57; }
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 3rem 0; font-size: 0.85rem; color: #A19E9A; background-color: var(--primary-white); border-top: 1px solid var(--border-soft); }
+
+        /* --- Interactive & Prettiness Effects --- */
+        [data-scroll] { transition: opacity 0.6s, transform 0.6s; opacity: 0; }
+        [data-scroll].scroll-visible { opacity: 1; transform: none; }
+        [data-scroll="fade"] { transform: translateY(20px); }
+        [data-scroll="slide-left"] { transform: translateX(20px); }
+        [data-scroll="slide-right"] { transform: translateX(-20px); }
+
+        /* --- Responsiveness (Mobile First) --- */
+        @media (max-width: 1024px) {
+            .hero { flex-direction: column; text-align: center; background: var(--primary-white); padding-bottom: 5rem;}
+            .hero-content { padding: 0; margin-bottom: 3rem;}
+            .hero-content h1 { font-size: 3rem; }
+            .hero-image img { max-width: 80%; }
+            .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .deep-dive-grid { grid-template-columns: 1fr; text-align: center; }
+            .deep-dive-list { padding: 0;}
+            .deep-dive-list li { text-align: left;}
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 5%; }
+            .nav-links { display: none; } 
+            .logo { font-size: 1.5rem; }
+            .product-display { grid-template-columns: 1fr; padding: 2rem;}
+            .product-details h2 { font-size: 2.2rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.2rem; }
+            .deep-dive-img img { display: none;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Navigation --- -->
+    <nav class="navbar">
+        <div class="logo">MILKE<span>MIL</span></div>
+        <ul class="nav-links">
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#details">The Blend</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-amazon">Order Now</a>
+    </nav>
+
+    <!-- --- Hero Section --- -->
+    <header class="hero" id="home">
+        <div class="hero-content" data-scroll="fade">
+            <span class="badge">DOCTOR FORMULATED PURE NUTRITION</span>
+            <h1>PURE NUTRITION FOR A HEALTHY PREGNANCY OUTCOME</h1>
+            <p>Premium 24% Whey Protein formula specially engineered to support you through pregnancy and lactation. Features fast digestion and essential vitamins.</p>
+            <a href="#shop" class="btn btn-amazon">Explore Our Flavors</a>
+        </div>
+        <div class="hero-image" data-scroll="slide-left">
+            <img src="FULL BODY WITH GLASS.jpeg" alt="Happy pregnant woman holding MILKEMIL metal tin">
+        </div>
+    </header>
+
+    <!-- --- Features Section --- -->
+    <section class="features" id="why" data-scroll="fade">
+        <h2 class="section-title">THE MILKEMIL <span>DIFFERENCE</span></h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3241/3241472.png" alt="Protein Icon">
+                <h3>Premium Protein Formula</h3>
+                <p>Features 24% High-Quality Whey Protein, the fastest digestive protein beneficial for both mother and fetus.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3133/3133166.png" alt="Safety Icon">
+                <h3>Scientifically Formulated Safety</h3>
+                <p>Reduces the risk of PROM, Preterm Birth, Oligohydrominos, and LBW (Low Birth Weight) for a safer journey.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3067/3067416.png" alt="Health Icon">
+                <h3>Healthy Weight Gain Support</h3>
+                <p>Helps with healthy and controlled weight gain during pregnancy, ensuring optimal nutrient intake.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Product Gallery Section --- -->
+    <section class="product-section" id="shop" data-scroll="fade">
+        <h2 class="section-title">SHOP OUR <span>BLENDS</span></h2>
+        
+        <div class="product-display">
+            <div class="product-gallery">
+                <div class="gallery-main">
+                    <img src="CHOCOLATE CLOSE UP.jpeg" id="mainImage" alt="MILKEMIL Chocolate tin">
+                </div>
+                <div class="gallery-thumbs">
+                    <div class="thumb active" onclick="changeImage('CHOCOLATE CLOSE UP.jpeg', this)">
+                        <img src="CHOCOLATE CLOSE UP.jpeg" alt="Chocolate tin">
+                    </div>
+                    <div class="thumb" onclick="changeImage('CAN CLOSE UP BOTH.jpeg', this)">
+                        <img src="CAN CLOSE UP BOTH.jpeg" alt="Double tin shot">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-details">
+                <span class="product-meta">Daily Pregnancy Essential | Gluten Free</span>
+                <h2>The Maternal Blend</h2>
+                
+                <div class="price-row">
+                    <span class="current-price">₹345.00</span>
+                    <div class="ratings">4.0 ★★★★☆ <span>(2 Reviews)</span></div>
+                </div>
+
+                <div class="flavor-selectors">
+                    <li><button class="flavor-btn chocolate active">Chocolate</button></li>
+                    <li><button class="flavor-btn vanilla">Vanilla</button></li>
+                </div>
+
+                <p style="color: #5C5A57; margin-bottom: 2rem;">
+                    Pure whey protein powder. Formulated to dissolve smoothly. Features fast-digesting protein beneficial for both mother and fetus. Available in elegant metal tins for better protection.
+                </p>
+
+                <div class="purchase-actions">
+                    <a href="https://www.amazon.in/Milkemil-Chocolate-flavour-special-pregnancy/dp/B0DFCG38XY?th=1" target="_blank" class="btn btn-amazon">Buy on Amazon</a>
+                    <a href="https://wa.me/919904493309" target="_blank" class="btn btn-whatsapp">Click to WhatsApp Inquiry</a>
+                </div>
+
+                <p class="product-notes">* For best results, use chilled milk for better taste.</p>
+                <p class="product-notes">* Standard Net Weight: 200g (Some variations might state 250g). Standardised details provided for the 200g variant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Deep Dive/Blend Specifics --- -->
+    <section class="deep-dive" id="details" data-scroll="fade">
+        <h2 class="section-title">INSIDE THE <span>MILKEMIL BLEND</span></h2>
+        <div class="deep-dive-grid">
+            <div class="deep-dive-list">
+                <li><strong>24% High-Quality Whey Protein:</strong> Fast-digesting protein beneficial for both mother and fetus. Supported by data indicating 52g protein in certain formulations.</li>
+                <li><strong>750mg Vitamins & Minerals:</strong> An essential daily boost of micronutrients for overall maternal health.</li>
+                <li><strong>Reduces Pregnancy Risks:</strong> Scientifically formulated blend data points to reducing PROM (Premature Rupture of Membranes), Preterm Birth, Oligohydrominos, and LBW (Low Birth Weight).</li>
+                <li><strong>Gluten-Free Formula:</strong> A safe and clean nutritional source for sensitive mothers.</li>
+            </div>
+            <div class="deep-dive-img">
+                <img src="CAN CLOSE UP BOTH.jpeg" alt="Metal tin close up" style="transform: rotate(-5deg);">
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FAQ Section --- -->
+    <section class="faq" id="faq" data-scroll="fade">
+        <h2 class="section-title">FREQUENTLY ASKED <span>QUESTIONS</span></h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>What makes Whey Protein special for pregnancy?</h4>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Whey protein is a complete protein, meaning it contains all essential amino acids. It is considered a fast-digesting protein, allowing for quicker absorption by the body, which is beneficial for the rapid nutritional demands of both the mother and the developing fetus during pregnancy and lactation.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>How should I consume MILKEMIL for best taste?</h4>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We recommend mixing your preferred flavour (Chocolate or Vanilla) with chilled milk for a better, smoother taste.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Is the metal tin packaging important?</h4>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. MILKEMIL is available in a metal tin, which offers superior protection against light, moisture, and environmental factors, ensuring the purity and stability of the premium protein formula.</p>
+                </div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-question">
+                    <h4>What weight variant is MILKEMIL available in?</h4>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard packaging for the listed premium blend, especially the metal tin variants, is often 200g net weight. While some data points might reference 250g, the provided pricing and details are standardized for the core 200g offering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Contact/CTA Section --- -->
+    <section class="contact" id="contact" data-scroll="fade">
+        <h2>GET IN TOUCH & <span>ORDER NOW</span></h2>
+        <div class="contact-cta">
+            <h3>Ready to experience MILKEMIL?</h3>
+            <p>Our official purchase link on Amazon or direct WhatsApp inquiry line are the fastest ways to get our premium prenatal blend delivered to your door.</p>
+            <a href="https://wa.me/919904493309" target="_blank" class="btn btn-whatsapp">Send us a WhatsApp</a>
+            <p style="color: #A19E9A;">OR VISIT OUR AMAZON STOREFRONT</p>
+            <a href="https://www.amazon.in/Milkemil-Chocolate-flavour-special-pregnancy/dp/B0DFCG38XY?th=1" target="_blank" class="btn btn-amazon">View on Amazon</a>
+        </div>
+    </section>
+
+    <!-- --- Footer --- -->
+    <footer>
+        <p>&copy; 2026 MILKEMIL - Premium Pregnancy Nutrition. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* --- Interactivity Scripts --- */
+
+        // 1. Basic Product Gallery Switcher
+        function changeImage(imgSrc, thumb) {
+            document.getElementById('mainImage').src = imgSrc;
+            const thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
+        // 2. Flavor Button Toggling
+        const flavorBtns = document.querySelectorAll('.flavor-btn');
+        flavorBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active from all other buttons in this context
+                btn.closest('.flavor-selectors').querySelectorAll('.flavor-btn').forEach(b => b.classList.remove('active'));
+                // Add active to the clicked button
+                btn.classList.add('active');
+            });
+        });
+
+        // 3. FAQ Accordion Logic
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const isOpen = answer.classList.contains('open');
+
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    item.classList.add('open');
+                } else {
+                    answer.classList.remove('open');
+                    item.classList.remove('open');
+                }
+            });
+        });
+
+        // 4. Scroll Fade-in Animation (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15 }); 
+
+        const scrollElements = document.querySelectorAll('[data-scroll]');
+        scrollElements.forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
